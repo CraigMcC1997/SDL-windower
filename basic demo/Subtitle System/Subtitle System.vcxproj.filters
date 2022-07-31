@@ -21,15 +21,15 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
+    <ClCompile Include="windower\Window.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="windower\AbstractWindow.h">
       <Filter>Engine</Filter>
     </ClInclude>
-    <ClInclude Include="AbstractWindow.h">
+    <ClInclude Include="windower\Window.h">
       <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
