@@ -1,0 +1,15 @@
+C/C++ - Additional Include Directories:
+..\Dev\SDL2-2.0.10\include;..\Dev\glm;..\Dev\glew-2.1.0\include;%(AdditionalIncludeDirectories)
+
+Linker - General - Additional Library Directories:
+..\Dev\SDL2-2.0.10\lib\x86;..\Dev\glew-2.1.0\src\lib\Debug\Win32;%(AdditionalLibraryDirectories)
+
+Linker - Input - Additional Dependencies:
+SDL2.lib;SDL2main.lib;glew32d.lib;opengl32.lib
+
+
+
+Subtitle System/ Debug/:
+glew32d.dll
+SDL2.dll
+SDL2d.dll
