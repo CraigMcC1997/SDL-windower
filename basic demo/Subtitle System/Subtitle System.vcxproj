@@ -133,11 +133,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="windower\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbstractWindow.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="windower\AbstractWindow.h" />
+    <ClInclude Include="windower\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
