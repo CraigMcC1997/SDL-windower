@@ -17,8 +17,16 @@ int main(int argc, char* argv[])
 	bool running = true;
 	while (running) {	// the event loop
 		while (SDL_PollEvent(&sdlEvent)) {
-			if (sdlEvent.type == SDL_QUIT)
-				running = false;
+			switch (sdlEvent.type) {
+				case SDL_QUIT:
+					running = false;
+					break;
+				case SDL_WINDOWEVENT:
+					if (sdlEvent.window.event == SDL_WINDOWEVENT_RESIZED) {
+						hWindow->resize(sdlEvent);
+					}
+					break;
+			};
 		}
 	}
 	
