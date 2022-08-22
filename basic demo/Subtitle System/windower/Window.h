@@ -32,6 +32,7 @@ public:
 	SDL_Renderer* getRenderTarget();
 	SDL_Window* create_window();
 	void createRenderer();
-	void cleanWindow();
+	void cleanWindow();	//allow window to be wiped clean
+	void resize();	//allow the window to be resizable
 };
 

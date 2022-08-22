@@ -20,7 +20,7 @@ SDL_Window* Window::create_window()
 {
 	//Create window
 	window = SDL_CreateWindow(windowName, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-		width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+		width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 	if (!window) // Check window was created OK
 		std::cout << "Unable to create window" << std::endl;
 
@@ -58,4 +58,10 @@ void Window::cleanWindow()
 {
 	SDL_GL_DeleteContext(glContext);
 	SDL_DestroyWindow(window);
+}
+
+void Window::resize(SDL_Event event)
+{
+	//SDL_SetWindowSize(window, event.window.data1, event.window.data2);
+	SDL_RenderPresent(renderTarget);
 }
