@@ -16,6 +16,7 @@ private:
 	const char* windowName;
 	SDL_Renderer* renderTarget = nullptr;
 	SDL_GLContext glContext; // OpenGL context handle
+	vector<int> windowColour { 255, 255, 255 };	//used for tracking windowColour
 
 public:
 	Window(int w, int h, const char* name) :
@@ -24,6 +25,7 @@ public:
 		setupRC();
 		create_window();
 		createRenderer();
+		setBackgroundColour(windowColour);
 	}
 
 	virtual ~Window() {}
@@ -34,5 +36,6 @@ public:
 	void createRenderer();
 	void cleanWindow();	//allow window to be wiped clean
 	void resize();	//allow the window to be resizable
+	void setBackgroundColour(vector<int> colour = { 255, 255, 255 }); //set initial window colour, default white
 };
 

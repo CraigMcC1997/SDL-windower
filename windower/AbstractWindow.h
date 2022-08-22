@@ -8,6 +8,7 @@
 #include "SDL.h"
 #include <GL/glew.h>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 

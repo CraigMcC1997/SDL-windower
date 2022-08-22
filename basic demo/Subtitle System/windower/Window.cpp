@@ -60,8 +60,26 @@ void Window::cleanWindow()
 	SDL_DestroyWindow(window);
 }
 
-void Window::resize(SDL_Event event)
+void Window::resize()
 {
-	//SDL_SetWindowSize(window, event.window.data1, event.window.data2);
-	SDL_RenderPresent(renderTarget);
+	SDL_RenderPresent(renderTarget); 
+	setBackgroundColour();	//keeps the background colour consistent
+}
+
+void Window::setBackgroundColour(vector<int> colour)
+{
+	// ensure valid range
+	if (colour.size() >= 3)
+	{
+		//update window colour
+		SDL_SetRenderDrawColor(renderTarget, colour[0], colour[1], colour[2], 255);
+		
+		// Clear the entire screen
+		SDL_RenderClear(renderTarget);
+
+		// render changes
+		SDL_RenderPresent(renderTarget);
+	}
+	else
+		cout << "Please chose a valid colour range: {0-255, 0-255, 0-255}";
 }

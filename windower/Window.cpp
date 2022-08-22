@@ -20,7 +20,7 @@ SDL_Window* Window::create_window()
 {
 	//Create window
 	window = SDL_CreateWindow(windowName, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-		width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);
+		width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 	if (!window) // Check window was created OK
 		std::cout << "Unable to create window" << std::endl;
 
@@ -58,4 +58,28 @@ void Window::cleanWindow()
 {
 	SDL_GL_DeleteContext(glContext);
 	SDL_DestroyWindow(window);
+}
+
+void Window::resize()
+{
+	SDL_RenderPresent(renderTarget); 
+	setBackgroundColour();	//keeps the background colour consistent
+}
+
+void Window::setBackgroundColour(vector<int> colour)
+{
+	// ensure valid range
+	if (colour.size() >= 3)
+	{
+		//update window colour
+		SDL_SetRenderDrawColor(renderTarget, colour[0], colour[1], colour[2], 255);
+		
+		// Clear the entire screen
+		SDL_RenderClear(renderTarget);
+
+		// render changes
+		SDL_RenderPresent(renderTarget);
+	}
+	else
+		cout << "Please chose a valid colour range: {0-255, 0-255, 0-255}";
 }

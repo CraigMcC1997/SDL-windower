@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 					break;
 				case SDL_WINDOWEVENT:
 					if (sdlEvent.window.event == SDL_WINDOWEVENT_RESIZED) {
-						hWindow->resize(sdlEvent);
+						hWindow->resize();
 					}
 					break;
 			};
